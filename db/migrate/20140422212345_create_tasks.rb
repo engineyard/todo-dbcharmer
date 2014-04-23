@@ -1,5 +1,7 @@
+require "connection_names"
+
 class CreateTasks < ActiveRecord::Migration
-  db_magic connection: [:db_a, :db_b]
+  db_magic connection: TodoDbCharmer::ConnectionNames.all(:default)
   def up
     if !ActiveRecord::Base.connection.table_exists?('tasks')
       create_table :tasks, id: false, primary_key: :id do |t|

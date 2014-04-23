@@ -13,4 +13,11 @@
 
 ActiveRecord::Schema.define(:version => 20140422212345) do
 
+  create_table "tasks", :id => false, :force => true do |t|
+    t.string   "id",         :limit => 36
+    t.string   "name"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
 end
